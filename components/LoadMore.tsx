@@ -1,10 +1,33 @@
-import Image from "next/image";
+"use client";
+import { fetchGames } from "@/app/action";
+import React, { useEffect, useState } from "react";
+import { useInView } from "react-intersection-observer";
+import VideoGameCard from "./VideoGameCard";
+
+let page = 2;
+
+export type VideoGameCard = React.JSX.Element;
 
 function LoadMore() {
+  const { ref, inView } = useInView();
+  const [data, setData] = useState<VideoGameCard[]>([]);
+
+  useEffect(() => {
+    if (inView) {
+      fetchGames(page).then((res) => {
+        setData([...data, ...res]);
+        page++;
+      });
+    }
+  }, [inView, data]);
+
   return (
     <>
+      <section className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10">
+        {data}
+      </section>
       <section className="flex justify-center items-center w-full">
-        <div role="status">
+        <div ref={ref} role="status">
           <svg
             aria-hidden="true"
             className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"

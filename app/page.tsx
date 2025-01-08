@@ -1,4 +1,3 @@
-import VideoGameCard, { GameProp } from "@/components/VideoGameCard";
 import LoadMore from "../components/LoadMore";
 import { fetchGames } from "./action";
 
@@ -9,9 +8,7 @@ async function Home() {
       <h2 className="text-3xl text-white font-bold">Explore Games</h2>
 
       <section className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10">
-        {data.map((item: GameProp, index: number) => (
-          <VideoGameCard key={item.id} game={item} index={index} />
-        ))}
+        {data}
       </section>
       <LoadMore />
     </main>
