@@ -8,7 +8,10 @@ export const fetchGames = async (page: number) => {
   );
   const data = await response.json();
   const gameData = data.results;
-  return gameData.map((item: GameProp, index: number) => (
-    <VideoGameCard key={item.id} game={item} index={index} />
-  ));
+  return (
+    gameData &&
+    gameData.map((item: GameProp, index: number) => (
+      <VideoGameCard key={item.id} game={item} index={index} />
+    ))
+  );
 };

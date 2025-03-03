@@ -1,5 +1,5 @@
-import LoadMore from "../components/LoadMore";
-import { fetchGames } from "./action";
+import LoadMore from "../../components/LoadMore";
+import { fetchGames } from "../action";
 
 async function Home() {
   const data = await fetchGames(1);
