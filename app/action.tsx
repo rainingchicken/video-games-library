@@ -1,8 +1,8 @@
 "use server";
 
 import VideoGameCard, { GameProp } from "@/components/Home/VideoGameCard";
+import Hero from "@/components/VideoGamesDetails/Hero";
 import ScreenshotCarousel from "@/components/VideoGamesDetails/ScreenshotCarousel";
-import VideoGamesDetails from "@/components/VideoGamesDetails/VideoGamesDetails";
 
 export const fetchGames = async (page: number) => {
   const response = await fetch(
@@ -23,7 +23,7 @@ export const fetchSpecificGame = async (slug: string) => {
     `https://api.rawg.io/api/games/${slug}?key=${process.env.API_KEY}`
   );
   const data = await response.json();
-  return data && <VideoGamesDetails game={data} />;
+  return data && <Hero game={data} />;
 };
 
 export const fetchScreenshots = async (slug: string) => {
@@ -32,5 +32,6 @@ export const fetchScreenshots = async (slug: string) => {
   );
   const data = await response.json();
   const images = data.results;
-  return data && <ScreenshotCarousel images={images} />;
+  const gameTitle = slug.split("-").join(" ");
+  return data && <ScreenshotCarousel images={images} gameTitle={gameTitle} />;
 };
