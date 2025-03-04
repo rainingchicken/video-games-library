@@ -12,7 +12,7 @@ const AvailableStores = ({ game }: Prop) => {
     <div className="mt-10">
       <h1 className="text-5xl text-center font-bold">Available Stores</h1>
       <div className="flex justify-center mt-10">
-        <Link className="mr-2" href={game.website}>
+        <Link target="blank" className="mr-2" href={game.website}>
           <Button outline color="dark">
             Official Store
           </Button>
@@ -20,6 +20,7 @@ const AvailableStores = ({ game }: Prop) => {
         {game &&
           game.stores.map((store) => (
             <Link
+              target="blank"
               className="mr-2"
               key={store.id}
               href={`https://${store.store.domain}`}

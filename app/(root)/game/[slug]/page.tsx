@@ -1,4 +1,5 @@
 import { fetchScreenshots, fetchSpecificGame } from "@/app/action";
+import AvailablePlatforms from "@/components/VideoGamesDetails/AvailablePlatforms";
 import AvailableStores from "@/components/VideoGamesDetails/AvailableStores";
 import Description from "@/components/VideoGamesDetails/Description";
 import Hero from "@/components/VideoGamesDetails/Hero";
@@ -85,11 +86,10 @@ export interface GameProp {
         games_count: number;
         image_background: string;
         released_at: string;
-        requirements_en: {
-          minimum: string;
-          recommended: string;
-        };
-        requirements_ru: any;
+      };
+      requirements: {
+        minimum: string;
+        recommended: string;
       };
     }
   ];
@@ -177,6 +177,7 @@ const GameDetails = async ({ params }: Props) => {
       {gameData && <Description game={gameData} />}
       {gameData && <PlayerStatus game={gameData} />}
       {gameData && <AvailableStores game={gameData} />}
+      {gameData && <AvailablePlatforms game={gameData} />}
     </div>
   );
 };
