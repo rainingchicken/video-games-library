@@ -24,9 +24,7 @@ const ExtraGameDetailsTable = ({ game }: Prop) => {
             <TableCell>{"Alt. names"}</TableCell>
             <TableCell>
               {game.alternative_names &&
-                game.alternative_names.map((name) => (
-                  <span key={name}>{name} </span>
-                ))}
+                game.alternative_names.map((name) => <p key={name}>{name} </p>)}
             </TableCell>
           </TableRow>
           <TableRow>

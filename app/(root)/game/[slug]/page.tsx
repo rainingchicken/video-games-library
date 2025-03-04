@@ -1,4 +1,5 @@
 import { fetchScreenshots, fetchSpecificGame } from "@/app/action";
+import AvailableStores from "@/components/VideoGamesDetails/AvailableStores";
 import Description from "@/components/VideoGamesDetails/Description";
 import Hero from "@/components/VideoGamesDetails/Hero";
 import PlayerStatus from "@/components/VideoGamesDetails/PlayerStatus";
@@ -175,6 +176,7 @@ const GameDetails = async ({ params }: Props) => {
       )}
       {gameData && <Description game={gameData} />}
       {gameData && <PlayerStatus game={gameData} />}
+      {gameData && <AvailableStores game={gameData} />}
     </div>
   );
 };
