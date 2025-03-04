@@ -1,3 +1,4 @@
+import { fetchSpecificGame } from "@/app/action";
 import React from "react";
 
 type Props = {
@@ -5,7 +6,8 @@ type Props = {
 };
 const GameDetails = async ({ params }: Props) => {
   const { slug } = await params;
-  return <div>ID: {slug}</div>;
+  const data = await fetchSpecificGame(slug);
+  return <div>{data}</div>;
 };
 
 export default GameDetails;

@@ -1,4 +1,4 @@
-import LoadMore from "../../components/LoadMore";
+import LoadMore from "../../components/Home/LoadMore";
 import { fetchGames } from "../action";
 
 async function Home() {

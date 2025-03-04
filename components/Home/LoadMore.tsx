@@ -2,7 +2,6 @@
 import { fetchGames } from "@/app/action";
 import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
-import VideoGameCard from "./VideoGameCard";
 
 let page = 2;
 
