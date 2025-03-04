@@ -161,13 +161,17 @@ type Props = {
 const GameDetails = async ({ params }: Props) => {
   const { slug } = await params;
   const gameData = await fetchSpecificGame(slug);
-  const [images, gameTitle] = await fetchScreenshots(slug);
+  const [videos, images, gameTitle] = await fetchScreenshots(slug);
 
   return (
     <div>
       {gameData && <Hero game={gameData} />}
       {images && gameTitle && (
-        <ScreenshotCarousel images={images} gameTitle={gameTitle} />
+        <ScreenshotCarousel
+          videos={videos}
+          images={images}
+          gameTitle={gameTitle}
+        />
       )}
       {gameData && <Description game={gameData} />}
       {gameData && <PlayerStatus game={gameData} />}

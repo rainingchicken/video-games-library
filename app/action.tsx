@@ -27,11 +27,16 @@ export const fetchSpecificGame = async (slug: string) => {
 };
 
 export const fetchScreenshots = async (slug: string) => {
-  const response = await fetch(
+  const responseImages = await fetch(
     `https://api.rawg.io/api/games/${slug}/screenshots?key=${process.env.API_KEY}`
   );
-  const data = await response.json();
-  const images = data.results;
+  const responseVideos = await fetch(
+    `https://api.rawg.io/api/games/${slug}/movies?key=${process.env.API_KEY}`
+  );
+  const dataImages = await responseImages.json();
+  const dataVideos = await responseVideos.json();
+  const images = dataImages.results;
+  const videos = dataVideos.results;
   const gameTitle = slug.split("-").join(" ");
-  return [images, gameTitle];
+  return [videos, images, gameTitle];
 };

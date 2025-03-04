@@ -10,17 +10,42 @@ export interface ScreenshotsProps {
   is_deleted: boolean;
 }
 
+export interface VideoProps {
+  id: number;
+  name: string;
+  preview: string;
+  data: {
+    480: string;
+    max: string;
+  };
+}
+
 export interface Prop {
+  videos: [VideoProps];
   images: [ScreenshotsProps];
   gameTitle: string;
 }
 
-const ScreenshotCarousel = ({ images, gameTitle }: Prop) => {
+const ScreenshotCarousel = ({ videos, images, gameTitle }: Prop) => {
   return (
     <div className="m-10">
-      <h1 className="text-5xl text-center font-bold">Screenshots</h1>
+      <h1 className="text-5xl text-center font-bold">
+        Trailers and Screenshots
+      </h1>
       <div className="m-10 h-lvh ">
         <Carousel slide={false}>
+          {videos &&
+            videos.map((video) => (
+              <video
+                key={video.id}
+                controls
+                preload="none"
+                aria-label="Video player"
+              >
+                <source src={video.data.max} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            ))}
           {images &&
             images.map((image) => (
               <Image
