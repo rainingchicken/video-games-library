@@ -18,8 +18,8 @@ export interface Prop {
 const ScreenshotCarousel = ({ images, gameTitle }: Prop) => {
   return (
     <div className="m-10">
-      <h1 className="text-5xl">Screenshots</h1>
-      <div className="m-10 h-56 sm:h-64 xl:h-80 2xl:h-96 ">
+      <h1 className="text-5xl text-center font-bold">Screenshots</h1>
+      <div className="m-10 h-lvh ">
         <Carousel slide={false}>
           {images &&
             images.map((image) => (

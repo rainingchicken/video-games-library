@@ -23,7 +23,7 @@ export const fetchSpecificGame = async (slug: string) => {
     `https://api.rawg.io/api/games/${slug}?key=${process.env.API_KEY}`
   );
   const data = await response.json();
-  return data && <Hero game={data} />;
+  return data;
 };
 
 export const fetchScreenshots = async (slug: string) => {
@@ -33,5 +33,5 @@ export const fetchScreenshots = async (slug: string) => {
   const data = await response.json();
   const images = data.results;
   const gameTitle = slug.split("-").join(" ");
-  return data && <ScreenshotCarousel images={images} gameTitle={gameTitle} />;
+  return [images, gameTitle];
 };

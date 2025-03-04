@@ -1,5 +1,7 @@
 import { fetchScreenshots, fetchSpecificGame } from "@/app/action";
+import Description from "@/components/VideoGamesDetails/Description";
 import Hero from "@/components/VideoGamesDetails/Hero";
+import PlayerStatus from "@/components/VideoGamesDetails/PlayerStatus";
 import ScreenshotCarousel, {
   ScreenshotsProps,
 } from "@/components/VideoGamesDetails/ScreenshotCarousel";
@@ -54,6 +56,7 @@ export interface GameProp {
   creators_count: number;
   achievements_count: number;
   parent_achievements_count: number;
+  reddit_url: string;
   reddit_count: number;
   twitch_count: number;
   youtube_count: number;
@@ -157,13 +160,17 @@ type Props = {
 };
 const GameDetails = async ({ params }: Props) => {
   const { slug } = await params;
-  const hero = await fetchSpecificGame(slug);
-  const screenshots = await fetchScreenshots(slug);
+  const gameData = await fetchSpecificGame(slug);
+  const [images, gameTitle] = await fetchScreenshots(slug);
 
   return (
     <div>
-      {hero}
-      {screenshots}
+      {gameData && <Hero game={gameData} />}
+      {images && gameTitle && (
+        <ScreenshotCarousel images={images} gameTitle={gameTitle} />
+      )}
+      {gameData && <Description game={gameData} />}
+      {gameData && <PlayerStatus game={gameData} />}
     </div>
   );
 };

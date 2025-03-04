@@ -18,15 +18,7 @@ const Hero = ({ game }: Prop) => {
           opacity: 0.15,
         }}
       />
-      <h1 className="text-9xl font-bold text-center ">{game.name}</h1>
-      <div className="justify-center w-screen m-auto">
-        {game.alternative_names &&
-          game.alternative_names.map((name) => (
-            <span className="text-center m-auto" key={name}>
-              {name}
-            </span>
-          ))}
-      </div>
+      <h1 className="text-8xl font-bold text-center ">{game.name}</h1>
       <div className="flex flex-wrap text-center m-8 justify-center text-black text-xl">
         {game.genres &&
           game.genres.map((genre) => (
@@ -46,26 +38,18 @@ const Hero = ({ game }: Prop) => {
             </div>
           ))}
       </div>
-      <h2 className="font-bold text-center flex m-auto justify-around sm:flex-row">
+      <h2 className="font-bold text-center flex m-auto justify-around ">
         <div>
           {game.metacritic && (
             <div>
-              <div className="text-2xl sm:text-3xl md:text-4xl xl:text-5xl 2xl:text-7xl">
-                {game.metacritic}
-              </div>
-              <div className="text-md sm:text-lg md:text-xl xl:text-2xl 2xl:text-3xl">
-                Metacritic Score
-              </div>
+              <div className="text-7xl">{game.metacritic}</div>
+              <div className="text-3xl">Metacritic Score</div>
             </div>
           )}
         </div>
         <div>
-          <div className="text-2xl sm:text-3xl md:text-4xl xl:text-5xl 2xl:text-7xl">
-            {game.rating}
-          </div>
-          <div className="text-md sm:text-lg md:text-xl xl:text-2xl 2xl:text-3xl">
-            Rating
-          </div>
+          <div className="text-7xl">{game.rating}</div>
+          <div className="text-3xl">Rating</div>
         </div>
       </h2>
       <h2 className="text-center">ESRB Rating: {game.esrb_rating.name}</h2>
