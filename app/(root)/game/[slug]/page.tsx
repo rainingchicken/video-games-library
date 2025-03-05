@@ -2,8 +2,8 @@ import { fetchScreenshots, fetchSpecificGame } from "@/app/action";
 import AvailablePlatforms from "@/components/VideoGamesDetails/AvailablePlatforms";
 import AvailableStores from "@/components/VideoGamesDetails/AvailableStores";
 import Description from "@/components/VideoGamesDetails/Description";
+import Developers from "@/components/VideoGamesDetails/Developers";
 import Hero from "@/components/VideoGamesDetails/Hero";
-import PlayerStatus from "@/components/VideoGamesDetails/PlayerStatus";
 import ScreenshotCarousel, {
   ScreenshotsProps,
 } from "@/components/VideoGamesDetails/ScreenshotCarousel";
@@ -129,6 +129,8 @@ export interface GameProp {
       id: number;
       name: string;
       slug: string;
+      games_count: number;
+      image_background: string;
     }
   ];
   tags: [
@@ -137,6 +139,15 @@ export interface GameProp {
       name: string;
       slug: string;
       language: string;
+      games_count: number;
+      image_background: string;
+    }
+  ];
+  publishers: [
+    {
+      id: number;
+      name: string;
+      slug: string;
       games_count: number;
       image_background: string;
     }
@@ -175,7 +186,7 @@ const GameDetails = async ({ params }: Props) => {
         />
       )}
       {gameData && <Description game={gameData} />}
-      {gameData && <PlayerStatus game={gameData} />}
+      {gameData && <Developers game={gameData} />}
       {gameData && <AvailableStores game={gameData} />}
       {gameData && <AvailablePlatforms game={gameData} />}
     </div>

@@ -40,6 +40,15 @@ const ExtraGameDetailsTable = ({ game }: Prop) => {
             <TableCell>{game.updated}</TableCell>
           </TableRow>
           <TableRow>
+            <TableCell> {"Publishers"}</TableCell>
+            <TableCell>
+              {game &&
+                game.publishers.map((publisher) => (
+                  <div key={publisher.id}>{publisher.name}</div>
+                ))}
+            </TableCell>
+          </TableRow>
+          <TableRow>
             <TableCell> {"Website"}</TableCell>
             <TableCell>
               <a href={game.website}>{game.website}</a>
