@@ -28,7 +28,7 @@ export interface Prop {
 
 const ScreenshotCarousel = ({ videos, images, gameTitle }: Prop) => {
   return (
-    <div className="m-10">
+    <div id="screenshots-section" className="m-10">
       <h1 className="text-5xl text-center font-bold">
         Trailers and Screenshots
       </h1>

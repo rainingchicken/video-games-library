@@ -9,7 +9,7 @@ export interface Prop {
 
 const AvailableStores = ({ game }: Prop) => {
   return (
-    <div className="mt-10">
+    <div id="availableStores-section" className="mt-10">
       <h1 className="text-5xl text-center font-bold">Available Stores</h1>
       <div className="flex justify-center mt-10">
         <Link target="blank" className="mr-2" href={game.website}>

@@ -8,7 +8,7 @@ export interface Prop {
 
 const AvailablePlatforms = ({ game }: Prop) => {
   return (
-    <div>
+    <div id="availablePlatforms-section">
       <h1 className="text-5xl text-center font-bold m-10">
         Available Platforms
       </h1>

@@ -159,7 +159,7 @@ function VideoGameCard({ game, index }: Prop) {
         <div className="flex gap-4 items-center">
           <div className="flex flex-row gap-2 items-center">
             <p className="text-base text-white font-bold">
-              {game.tags[0].name}
+              {game.genres[0].name}
             </p>
           </div>
           <div className="flex flex-row gap-2 items-center">

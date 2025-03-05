@@ -8,7 +8,7 @@ export interface Prop {
 
 const Description = ({ game }: Prop) => {
   return (
-    <section className="m-10">
+    <div id="description-section" className="m-10">
       <h1 className="text-5xl text-center font-bold">Description</h1>
       <div className="flex">
         <article
@@ -17,7 +17,7 @@ const Description = ({ game }: Prop) => {
         ></article>
         <ExtraGameDetailsTable game={game} />
       </div>
-    </section>
+    </div>
   );
 };
 

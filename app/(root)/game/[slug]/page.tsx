@@ -4,6 +4,7 @@ import AvailableStores from "@/components/VideoGamesDetails/AvailableStores";
 import Description from "@/components/VideoGamesDetails/Description";
 import Developers from "@/components/VideoGamesDetails/Developers";
 import Hero from "@/components/VideoGamesDetails/Hero";
+import NavBar from "@/components/VideoGamesDetails/NavBar";
 import ScreenshotCarousel, {
   ScreenshotsProps,
 } from "@/components/VideoGamesDetails/ScreenshotCarousel";
@@ -178,6 +179,7 @@ const GameDetails = async ({ params }: Props) => {
   return (
     <div>
       {gameData && <Hero game={gameData} />}
+      <NavBar />
       {images && gameTitle && (
         <ScreenshotCarousel
           videos={videos}

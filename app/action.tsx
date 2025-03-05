@@ -1,8 +1,6 @@
 "use server";
 
 import VideoGameCard, { GameProp } from "@/components/Home/VideoGameCard";
-import Hero from "@/components/VideoGamesDetails/Hero";
-import ScreenshotCarousel from "@/components/VideoGamesDetails/ScreenshotCarousel";
 
 export const fetchGames = async (page: number) => {
   const response = await fetch(
