@@ -38,3 +38,17 @@ export const fetchScreenshots = async (slug: string) => {
   const gameTitle = slug.split("-").join(" ");
   return [videos, images, gameTitle];
 };
+
+export const searchGames = async (searchTerm: string, page: number) => {
+  const response = await fetch(
+    `https://api.rawg.io/api/games?key=${process.env.API_KEY}&search=${searchTerm}&page=${page}&ordering=-added`
+  );
+  const data = await response.json();
+  const gameData = data.results;
+  return (
+    gameData &&
+    gameData.map((item: GameProp, index: number) => (
+      <VideoGameCard key={item.id} game={item} index={index} />
+    ))
+  );
+};

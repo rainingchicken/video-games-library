@@ -1,17 +1,33 @@
-import { TextInput } from "flowbite-react";
-import React from "react";
+"use client";
+
+import { Button, TextInput } from "flowbite-react";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 
 const Searchbar = () => {
+  const [input, setInput] = useState("");
+
+  const router = useRouter();
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInput(e.target.value);
+  };
+
+  const handleSubmit = () => {
+    router.push(`/search/${input}`);
+  };
   return (
-    <div className="group relative">
+    <form className="flex" onSubmit={handleSubmit}>
       <TextInput
         type="text"
         placeholder="Search"
-        className="focus:!border-t-gray-900 group-hover:border-2 group-hover:!border-gray-900"
-        readOnly
+        className=""
+        onChange={handleChange}
       />
-      <div className="absolute top-[calc(50%-1px)] right-2.5 -translate-y-2/4"></div>
-    </div>
+      <Button type="submit" color="dark" className="ml-2">
+        SEARCH
+      </Button>
+    </form>
   );
 };
 

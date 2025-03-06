@@ -136,7 +136,7 @@ function VideoGameCard({ game, index }: Prop) {
       className="max-w-sm rounded relative w-full"
     >
       <div className="relative w-full h-[37vh]">
-        <Link href={`game/${game.slug}`}>
+        <Link href={`/game/${game.slug}`}>
           <Image
             src={game.background_image}
             alt={game.name}
@@ -147,22 +147,26 @@ function VideoGameCard({ game, index }: Prop) {
       </div>
       <div className="py-4 flex flex-col gap-3">
         <div className="flex justify-between items-center gap-1">
-          <Link href={`game/${game.slug}`}>
+          <Link href={`/game/${game.slug}`}>
             <h2 className="font-bold text-white text-xl line-clamp-1 w-full">
               {game.name}
             </h2>
           </Link>
           <div className="py-1 px-2 bg-[#161921] rounded-sm">
-            <p className="text-white text-sm font-bold capitalize">
-              {game.genres[0].name}
-            </p>
+            {game.tags.length > 0 && (
+              <p className="text-white text-sm font-bold capitalize">
+                {game.tags[0].name}
+              </p>
+            )}
           </div>
         </div>
         <div className="flex gap-4 items-center">
           <div className="flex flex-row gap-2 items-center">
-            <p className="text-base text-white font-bold">
-              {game.genres[0].name}
-            </p>
+            {game.genres.length > 0 && (
+              <p className="text-base text-white font-bold">
+                {game.genres[0].name}
+              </p>
+            )}
           </div>
           <div className="flex flex-row gap-2 items-center">
             <p className="text-base font-bold text-[#FFAD49]">{game.rating}</p>
