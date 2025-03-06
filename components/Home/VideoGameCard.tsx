@@ -136,12 +136,14 @@ function VideoGameCard({ game, index }: Prop) {
       className="max-w-sm rounded relative w-full"
     >
       <div className="relative w-full h-[37vh]">
-        <Image
-          src={game.background_image}
-          alt={game.name}
-          fill
-          className="rounded-xl"
-        />
+        <Link href={`game/${game.slug}`}>
+          <Image
+            src={game.background_image}
+            alt={game.name}
+            fill
+            className="rounded-xl object-cover"
+          />
+        </Link>
       </div>
       <div className="py-4 flex flex-col gap-3">
         <div className="flex justify-between items-center gap-1">
