@@ -11,7 +11,7 @@ const AvailableStores = ({ game }: Prop) => {
   return (
     <div id="availableStores-section" className="mt-10">
       <h1 className="text-5xl text-center font-bold">Available Stores</h1>
-      <div className="flex justify-center mt-10">
+      <div className="flex justify-center mt-10 flex-wrap">
         <Link target="blank" className="mr-2" href={game.website}>
           <Button outline color="dark">
             Official Store
