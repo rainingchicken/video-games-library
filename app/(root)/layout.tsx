@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar";
 
 const navLinks = [
@@ -12,6 +13,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <>
       <NavBar navLinks={navLinks} isMainNavBar={true} />
       <main>{children}</main>
+      <Footer />
     </>
   );
 }
